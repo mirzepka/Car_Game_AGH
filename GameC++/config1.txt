@@ -1,0 +1,5 @@
+Height:600
+Width:800
+FullScreen:NO
+Frame:NO
+END

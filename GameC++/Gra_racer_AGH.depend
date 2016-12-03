@@ -1,0 +1,100 @@
+# depslib dependency file v1.0
+1480616798 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\main.cpp
+	"headers.h"
+
+1480671657 c:\users\zajac\documents\projekt gra\gra_racer_agh\headers.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<iostream>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<cmath>
+	<string>
+	<vector>
+	<sstream>
+	<fstream>
+	<cstdio>
+	<time.h>
+
+1480619484 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\init.cpp
+	"headers.h"
+
+1480362280 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\options.cpp
+	"headers.h"
+
+1480505264 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\window.cpp
+	"headers.h"
+
+1480672754 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\gamemap.cpp
+	"headers.h"
+
+1480335089 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\gamemenu.cpp
+	"headers.h"
+
+1480673417 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\playerkeyboard.cpp
+	"headers.h"
+
+1479842682 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\timers.cpp
+	"headers.h"
+
+1480504494 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\player.cpp
+	"headers.h"
+
+1480672754 source:e:\c++\car game\gamec++\gamemap.cpp
+	"headers.h"
+
+1480791284 e:\c++\car game\gamec++\headers.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<iostream>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<cmath>
+	<string>
+	<vector>
+	<sstream>
+	<fstream>
+	<cstdio>
+	<time.h>
+
+1480335089 source:e:\c++\car game\gamec++\gamemenu.cpp
+	"headers.h"
+
+1480619484 source:e:\c++\car game\gamec++\init.cpp
+	"headers.h"
+
+1480616798 source:e:\c++\car game\gamec++\main.cpp
+	"headers.h"
+
+1480362280 source:e:\c++\car game\gamec++\options.cpp
+	"headers.h"
+
+1480504494 source:e:\c++\car game\gamec++\player.cpp
+	"headers.h"
+
+1480677636 source:e:\c++\car game\gamec++\playerkeyboard.cpp
+	"headers.h"
+
+1479842682 source:e:\c++\car game\gamec++\timers.cpp
+	"headers.h"
+
+1480505264 source:e:\c++\car game\gamec++\window.cpp
+	"headers.h"
+
+1480791284 source:e:\c++\car game\gamec++\playermobile.cpp
+	"headers.h"
+
+1480791344 source:e:\c++\car game\gamec++\socketclient.cpp
+	"headers.h"
+	<iostream>
+	<winsock2.h>
+	<string>
+
