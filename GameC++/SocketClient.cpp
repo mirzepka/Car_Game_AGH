@@ -1,6 +1,6 @@
 #include "headers.h"
 #include <iostream>
-#include <winsock2.h>
+#include <Winsock2.h>
 #include <string>
 
 

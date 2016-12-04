@@ -98,10 +98,10 @@
 	<winsock2.h>
 	<string>
 
-1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
+1480852076 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
 	"headers.h"
 
-1480800662 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
+1480855542 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_primitives.h>
@@ -128,10 +128,10 @@
 1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\options.cpp
 	"headers.h"
 
-1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\player.cpp
+1480852076 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\player.cpp
 	"headers.h"
 
-1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
+1480852076 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
 	"headers.h"
 
 1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\timers.cpp
@@ -140,6 +140,15 @@
 1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\window.cpp
 	"headers.h"
 
-1480851030 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\main.cpp
+1480858450 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\main.cpp
 	"headers.h"
+
+1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playermobile.cpp
+	"headers.h"
+
+1480858743 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\socketclient.cpp
+	"headers.h"
+	<iostream>
+	<Winsock2.h>
+	<string>
 
