@@ -42,6 +42,7 @@ public class ProcessConnectionThread implements Runnable{
 	//////////////////////////////
 	public ProcessConnectionThread(StreamConnection connection) throws IOException
 	{
+		System.out.println("Connected,waiting for Socket connection ...");
 		mConnection = connection;
 		serverS=new SocketServer();
 		timeMeasure=System.currentTimeMillis();
@@ -59,6 +60,7 @@ public class ProcessConnectionThread implements Runnable{
 		
 			// prepare to receive data
 			//OutputStream outputStream = mConnection.openOutputStream();
+			
 			InputStream inputStream = mConnection.openInputStream();
 			char[] t=new char[2];
 			System.out.println("waiting for input");

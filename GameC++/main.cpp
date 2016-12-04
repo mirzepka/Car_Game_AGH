@@ -1,5 +1,5 @@
 #include "headers.h"
-
+///////////kom
 int main()
 {
     srand (time(NULL));
