@@ -11,15 +11,18 @@ Player::Player(int x,int y)
     al_convert_mask_to_alpha(model,al_map_rgb(255,255,255));
     screenx=x/2;
     screeny=y/2;
-    posX=x;                                                                         //starting position
-    posY=y;
+    posX=0;                                                                         //starting position
+    posY=0;
     angle=M_PI/2.0;
     moveSpeed=0;
     gravity=2;
     acceleration=0.3;
     MAXF=20;
     MAXB=5;
-
+    NewPosY=0;
+    NewPosX=0;
+    tempAngle=0;
+    tempMoveSpeed=0;
 }
 void Player::draw()
 {
@@ -31,7 +34,4 @@ Player::~Player()
     al_destroy_event_queue(eventQueue);
     al_destroy_timer(frameTimer);
     al_destroy_bitmap(model);
-
-
-
 }

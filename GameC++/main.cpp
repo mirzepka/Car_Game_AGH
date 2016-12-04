@@ -35,11 +35,11 @@ while(OverFlag)
             case 2:
                 if(mainMenu.WhichOption3()==1)
                 {
-                    PlayerMobile g1(mainWindow.getWidth(),mainWindow.getHeight());
+                 //   PlayerMobile g1(mainWindow.getWidth(),mainWindow.getHeight());
                     while(1)
                     {
                         //g1.draw();
-                        g1.movingKey();
+                       // g1.movingKey();
 
                     }
                 }

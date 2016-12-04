@@ -11,7 +11,6 @@ PlayerKeyboard::~PlayerKeyboard()
 }
 int PlayerKeyboard::movingKey()
 {
-    int NewPosY,NewPosX;
     bool draw;
     ALLEGRO_EVENT eventmain;
     ALLEGRO_KEYBOARD_STATE myKey1;
@@ -41,18 +40,21 @@ int PlayerKeyboard::movingKey()
                     al_get_keyboard_state(&myKey1);
                     if(al_key_down(&myKey1,ALLEGRO_KEY_LEFT))
                         {
-                            angle=(angle-3.0*sin(moveSpeed*(90.0/MAXF)*3.14/180.0));//*abs(moveSpeed/10.0));
+                            tempAngle=angle;
+                            angle=(angle-5.0*sin(moveSpeed*(90.0/MAXF)*M_PI/180.0));//*abs(moveSpeed/10.0));
                             if(moveSpeed>acceleration && gravity<3)
                             gravity+=0.0015*moveSpeed;
                         }
                     else if(al_key_down(&myKey1,ALLEGRO_KEY_RIGHT))
                         {
-                            angle=(angle+3.0*sin(moveSpeed*(130.0/MAXF)*3.14/180.0));//*abs(moveSpeed/10.0));
+                            tempAngle=angle;
+                            angle=(angle+5.0*sin(moveSpeed*(130.0/MAXF)*M_PI/180.0));//*abs(moveSpeed/10.0));
                             if(moveSpeed>acceleration && gravity>1)
                             gravity-=0.0015*moveSpeed;
                         }
                     if(al_key_down(&myKey1,ALLEGRO_KEY_DOWN))
                         {
+                            tempMoveSpeed=moveSpeed;
                             if(moveSpeed>0)
                             moveSpeed-=3.0*acceleration;
                             else if(moveSpeed>-MAXB)
@@ -60,6 +62,7 @@ int PlayerKeyboard::movingKey()
                         }
                     else if(al_key_down(&myKey1,ALLEGRO_KEY_UP))
                         {
+                            tempMoveSpeed=moveSpeed;
                             if(moveSpeed<MAXF)
                             moveSpeed+=acceleration;
                         }
@@ -71,18 +74,34 @@ int PlayerKeyboard::movingKey()
                             else
                                 moveSpeed=0;
                         }
-                        NewPosY+=(moveSpeed*sin(((double)((int)angle%360))*3.14/180.0));
-                        NewPosX+=(moveSpeed*cos(((double)((int)angle%360))*3.14/180.0));
-                        posY+=(moveSpeed*sin(((double)((int)angle%360))*3.14/180.0));
-                        posX+=(moveSpeed*cos(((double)((int)angle%360))*3.14/180.0));
-                        if (mapa.IsCollision(NewPosX+2*screenx,NewPosY+2*screeny))
-                            std::cout<<"kolizja"<<std::endl;
-                        al_identity_transform(&camera);
-
                         if(angle>360)
                             angle-=360;
                         else if(angle<0)
                             angle+=360;
+                        std::cout<<"movesped "<<moveSpeed<<std::endl;
+                        NewPosY=(moveSpeed*sin((angle)*M_PI/180.0));
+                        NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
+                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY))
+                            {
+                                std::cout<<"kolizja"<<std::endl;
+                                angle=tempAngle;
+                                if(moveSpeed<3)
+                                {
+                                    moveSpeed=0;
+                                    NewPosX=0;
+                                    NewPosY=0;
+                                }
+                                moveSpeed=-moveSpeed/2.0;
+                                posY-=NewPosY;
+                                posX-=NewPosX;
+                            }
+                            else
+                            {
+                                posY+=NewPosY;
+                                posX+=NewPosX;
+                            }
+                        al_identity_transform(&camera);
+
 
                         al_translate_transform(&camera,-posX+screenx,-posY+screeny);
                       //  al_rotate_transform(&camera,-(angle)*3.14/(180.0)-3.14/2.0);
@@ -98,7 +117,7 @@ int PlayerKeyboard::movingKey()
             draw=false;
             al_clear_to_color(al_map_rgb(0,0,240));
             mapa.draw();
-            al_draw_rotated_bitmap(model,al_get_bitmap_width(model)/2,gravity*al_get_bitmap_height(model)/4,posX,posY,angle*3.14/(180.0)+3.14/2.0,NULL);
+            al_draw_rotated_bitmap(model,al_get_bitmap_width(model)/2,al_get_bitmap_height(model)/2,posX,posY,angle*M_PI/(180.0)+M_PI/2.0,NULL);
             al_flip_display();
        }
     return 1;
