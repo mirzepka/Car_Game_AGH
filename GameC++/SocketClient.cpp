@@ -1,6 +1,6 @@
 #include "headers.h"
 #include <iostream>
-#include <winsock2.h>
+#include <Winsock2.h>
 #include <string>
 
 
@@ -39,7 +39,7 @@ void SocketClient::init()
     //Send some message to remote host
    // char* mymsg="GET / HTTP/1.1\r\n\r\n";
 startPositionX=((getData()&0xff00)>>8)-120;
-    startPositionY=((getData()&0xff))-120;
+    startPositionY=((getData()&0xff))-140;
 }
 /*
     int smsg=send(u_sock,mymsg,sizeof(mymsg),0);
@@ -55,13 +55,13 @@ int SocketClient::getData(void){
     int get=recv(u_sock,vect,4,0);
    // std::cout<<"prossssi"<<std::endl;
     if(get==SOCKET_ERROR){
-        std::cout<<"Error in Receiving: "<<WSAGetLastError()<<std::endl;
+     //   std::cout<<"Error in Receiving: "<<WSAGetLastError()<<std::endl;
         return 0;
     }
 
     int tempX=((0x0f&(vect[0]))<<4)|((0x0f&(vect[1])));
     int tempY=((0x0f&(vect[2]))<<4)|((0x0f&(vect[3])));
-    std::cout<<"startPOS"<<startPositionY<<"y z telefonu "<<tempY<<std::endl;
+  //  std::cout<<"startPOS"<<startPositionY<<"y z telefonu "<<tempY<<std::endl;
     ////////// Uwzglednianie pozycji startowej:
     tempX-=startPositionX;
     if(tempX<0){

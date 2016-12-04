@@ -24,6 +24,7 @@ void GameMap::draw()
            al_draw_filled_rectangle(squareX[i].first,squareY[i].first,squareX[i].second, squareY[i].second, al_map_rgb(i*100%255,i*90%255,i*100%255));
 
     }
+    al_draw_line(0, 0, 3200, 0,al_map_rgb(10,0,0), 10);
 }
 void GameMap::init()
 {
@@ -41,17 +42,17 @@ void GameMap::init()
             temporary1=i*(XWidth+freespace)+tmp3;
             temporary2=50+temporary1+rand()%(XWidth-tmp3);
                 std::cout<<temporary1<<"--"<<temporary2<<"  ";
-            squareX.push_back(std::pair<int,int>(temporary1,temporary2));
+            squareX.push_back(std::pair<double,double>(temporary1,temporary2));
         tmp3=rand()%(3*XHeight/4);
             temporary1=j*(XHeight+freespace)+tmp3;
             temporary2=50+temporary1+rand()%(XHeight-tmp3);
                 std::cout<<temporary1<<"--"<<temporary2<<std::endl;
-            squareY.push_back(std::pair<int,int>(temporary1,temporary2));
+            squareY.push_back(std::pair<double,double>(temporary1,temporary2));
         }
         a=0;
     }
 }
-bool GameMap::IsCollision(int posx,int posy)
+bool GameMap::IsCollision(double posx,double posy)
 {
     std::cout<<posx<<"--"<<posy<<std::endl;
     for(int i=0;i<SX*SY-1;i++)

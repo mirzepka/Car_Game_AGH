@@ -21,27 +21,29 @@ while(OverFlag)
             case 1:
                 if(mainMenu.WhichOption3()==1)
                 {
-                    PlayerKeyboard g1(mainWindow.getWidth(),mainWindow.getHeight());
+                    PlayerMobile g1(mainWindow.getWidth(),mainWindow.getHeight());
                     while(1)
                     {
-                        //g1.draw();
+                        g1.draw();
                         g1.movingKey();
 
                     }
                 }
                 else
-                ;
+                {
+                    //PlayerMobile g1(mainWindow.getWidth(),mainWindow.getHeight());
+                    while(1)
+                    {
+                        //g1.draw();
+                      // g1.movingKey();
+
+                    }
+                }
                 break;
             case 2:
                 if(mainMenu.WhichOption3()==1)
                 {
-                    PlayerMobile g1(mainWindow.getWidth(),mainWindow.getHeight());
-                    while(1)
-                    {
-                        //g1.draw();
-                        g1.movingKey();
 
-                    }
                 }
                 else
                 ;
