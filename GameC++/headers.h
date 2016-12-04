@@ -145,7 +145,20 @@ class PlayerKeyboard : public Player
     ~PlayerKeyboard();
     int movingKey();
 };
+class SocketClient
+ {
+     WSAData version;//We need to check the version.
+     WORD mkword;
+     SOCKET u_sock;
+     sockaddr_in addr;
+     char vect[4];
+     int startPositionX,startPositionY;
 
+    public:
+     void init(void);
+     int getData(void);
+
+ };
 class PlayerMobile : public Player
 {
     SocketClient client;
