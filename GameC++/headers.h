@@ -120,12 +120,12 @@ class Player
 protected:
     GameMap mapa;
     ALLEGRO_TIMER* frameTimer;
+    ALLEGRO_DISPLAY* display;
     ALLEGRO_EVENT_QUEUE * eventQueue;
     ALLEGRO_BITMAP* model;
     ALLEGRO_TRANSFORM camera;
     double screenx,screeny;
     double posX,posY;                                          //current position
-    int posX1,posY2;
     double moveSpeed;
     double acceleration;
     double gravity;
@@ -133,15 +133,16 @@ protected:
     double angle;
     double NewPosY,NewPosX;
     double tempAngle,tempMoveSpeed;
+    double turning;
 public:
-    Player(int,int);
+    Player(ALLEGRO_DISPLAY*,int,int);
     ~Player();
     void draw();
 };
 class PlayerKeyboard : public Player
 {
     public:
-    PlayerKeyboard(int,int);
+    PlayerKeyboard(ALLEGRO_DISPLAY*,int,int);
     ~PlayerKeyboard();
     int movingKey();
 };
@@ -165,8 +166,29 @@ class PlayerMobile : public Player
     int tmpToClient;
     int out,TempX,TempY,StartX,StartY;
     public:
-    PlayerMobile(int,int);
+    PlayerMobile(ALLEGRO_DISPLAY*,int,int);
     ~PlayerMobile();
     int movingKey();
 };
 
+class PlayerKeyboard2 : public PlayerKeyboard
+{
+private:
+    ALLEGRO_BITMAP* model2;
+    ALLEGRO_BITMAP* screen1;
+    ALLEGRO_BITMAP* screen2;
+    double posX2,posY2;
+    double moveSpeed2;
+    double acceleration2;
+    double gravity2;
+    double MAXF2,MAXB2;
+    double angle2;
+    double NewPosY2,NewPosX2;
+    double tempAngle2,tempMoveSpeed2;
+    double turning2;
+    void drawing2();
+    ALLEGRO_TRANSFORM camera2;
+    public:
+    PlayerKeyboard2(ALLEGRO_DISPLAY*,int,int);
+    int movingKey();
+};

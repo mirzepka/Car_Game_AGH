@@ -21,7 +21,7 @@ while(OverFlag)
             case 1:
                 if(mainMenu.WhichOption3()==1)
                 {
-                    PlayerKeyboard g1(mainWindow.getWidth(),mainWindow.getHeight());
+                    PlayerKeyboard g1(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
                     while(1)
                     {
 
@@ -31,7 +31,7 @@ while(OverFlag)
                 }
                 else
                 {
-                    PlayerMobile g1(mainWindow.getWidth(),mainWindow.getHeight());
+                    PlayerMobile g1(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
                     while(1)
                     {
 
@@ -43,14 +43,30 @@ while(OverFlag)
             case 2:
                 if(mainMenu.WhichOption3()==1)
                 {
-
+                    if(mainMenu.WhichOption3()==1)
+                    {
+                        PlayerKeyboard2 g(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
+                        while(1)
+                        {
+                            g.movingKey();
+                        }
+                    }
+                    else
+                    {
+                     ;
+                    }
                 }
                 else
-                ;
-                if(mainMenu.WhichOption3()==1)
-                ;
-                else
-                ;
+                {
+                    if(mainMenu.WhichOption3()==1)
+                    {
+                       ;
+                    }
+                    else
+                    {
+                        ;
+                    }
+                }
                 break;
             }
             break;

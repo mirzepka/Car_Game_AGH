@@ -1,6 +1,6 @@
 #include "headers.h"
 
-PlayerMobile::PlayerMobile(int x,int y) : Player(x,y)
+PlayerMobile::PlayerMobile(ALLEGRO_DISPLAY* d,int x,int y) : Player(d,x,y)
 {
     al_register_event_source(eventQueue,al_get_keyboard_event_source());
     /////////////SOCKETY
