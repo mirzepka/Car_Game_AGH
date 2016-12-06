@@ -14,7 +14,6 @@ PlayerMobile::~PlayerMobile()
 }
 int PlayerMobile::movingKey()
 {
-    int NewPosY,NewPosX;
     bool draw;
     ALLEGRO_EVENT eventmain;
     ALLEGRO_KEYBOARD_STATE myKey1;
@@ -49,16 +48,19 @@ int PlayerMobile::movingKey()
                    }
 
                     if(TempX>200){
+                            tempAngle=angle;
                     angle=(angle+3.0*sin(moveSpeed*(130.0/MAXF)*3.14/180.0));//*abs(moveSpeed/10.0));
                             if(moveSpeed>acceleration && gravity>1)
                             gravity-=0.0015*moveSpeed;
                     }
                    else if(TempX>40&&TempX<200){
+                        tempAngle=angle;
                     angle=(angle-3.0*sin(moveSpeed*(90.0/MAXF)*3.14*(double(TempX-120.0)/80.0)/180.0));//*abs(moveSpeed/10.0));
                             if(moveSpeed>acceleration && gravity<3)
                             gravity+=0.0015*moveSpeed;
                     }
                    else{
+                       tempAngle=angle;
                                                 angle=(angle-3.0*sin(moveSpeed*(90.0/MAXF)*3.14/180.0));//*abs(moveSpeed/10.0));
                             if(moveSpeed>acceleration && gravity<3)
                             gravity+=0.0015*moveSpeed;
@@ -69,7 +71,7 @@ int PlayerMobile::movingKey()
                             moveSpeed+=acceleration;
                     }
                    else if((TempY>140)&&(TempY<200)){
-std::cout<<"CYYYCKI"<<acceleration*(double((double)TempY-140.0))/60.0<<std::endl;
+std::cout<<"test"<<acceleration*(double((double)TempY-140.0))/60.0<<std::endl;
                     moveSpeed+=acceleration*(double((double)TempY-140.0))/60.0;
 
                    }
@@ -88,7 +90,7 @@ std::cout<<"CYYYCKI"<<acceleration*(double((double)TempY-140.0))/60.0<<std::endl
 
                         NewPosY=(moveSpeed*sin((angle)*M_PI/180.0));
                         NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
-                        if (mapa.IsCollision(NewPosX+2*screenx,NewPosY+2*screeny))
+                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY))
                            {
                                 std::cout<<"kolizja"<<std::endl;
                                 angle=tempAngle;
@@ -128,7 +130,7 @@ std::cout<<"CYYYCKI"<<acceleration*(double((double)TempY-140.0))/60.0<<std::endl
             draw=false;
             al_clear_to_color(al_map_rgb(0,0,240));
             mapa.draw();
-            al_draw_rotated_bitmap(model,al_get_bitmap_width(model)/2,gravity*al_get_bitmap_height(model)/4,posX,posY,angle*3.14/(180.0)+3.14/2.0,NULL);
+            al_draw_rotated_bitmap(model,al_get_bitmap_width(model)/2,al_get_bitmap_height(model)/2,posX,posY,angle*3.14/(180.0)+3.14/2.0,NULL);
             al_flip_display();
        }
     return 1;
