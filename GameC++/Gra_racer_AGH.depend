@@ -137,7 +137,7 @@
 1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\timers.cpp
 	"headers.h"
 
-1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\window.cpp
+1481064136 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\window.cpp
 	"headers.h"
 
 1481060848 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\main.cpp
@@ -152,6 +152,6 @@
 	<Winsock2.h>
 	<string>
 
-1481059094 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard2.cpp
+1481061990 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard2.cpp
 	"headers.h"
 
