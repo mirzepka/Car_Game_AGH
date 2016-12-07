@@ -136,7 +136,7 @@ int PlayerKeyboard2::movingKey()
 // ------------------------CHANGING POSITION OF PLAYER 1 ----------------------
                         NewPosY=(moveSpeed*sin((angle)*M_PI/180.0));
                         NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
-                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY))
+                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
                             {
                                 angle=tempAngle;
                                 if(moveSpeed<3)
@@ -157,7 +157,7 @@ int PlayerKeyboard2::movingKey()
 // ------------------------CHANGING POSITION OF PLAYER 2 ----------------------
                         NewPosY2=(moveSpeed2*sin((angle2)*M_PI/180.0));
                         NewPosX2=(moveSpeed2*cos((angle2)*M_PI/180.0));
-                        if (mapa.IsCollision(posX2+NewPosX2,posY2+NewPosY2))
+                        if (mapa.IsCollision(posX2+NewPosX2,posY2+NewPosY2,angle2))
                             {
                                 angle2=tempAngle2;
                                 if(moveSpeed2<3)

@@ -3,6 +3,7 @@
 
 Player::Player(ALLEGRO_DISPLAY* d,int x,int y)
 {
+
     display=d;
     eventQueue=al_create_event_queue();
     frameTimer=al_create_timer(1.0/FPS);

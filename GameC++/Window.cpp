@@ -4,7 +4,7 @@
 
 Window::Window() : Options()
 {
-    al_set_new_display_flags(ScreenFlags | ALLEGRO_FULLSCREEN_WINDOW  );//| ALLEGRO_FULLSCREEN_WINDOW
+    al_set_new_display_flags(ScreenFlags );//| ALLEGRO_FULLSCREEN_WINDOW
     display = al_create_display(ScreenWidth,ScreenHeight);
     al_set_system_mouse_cursor(display, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT);
     al_show_mouse_cursor(display);

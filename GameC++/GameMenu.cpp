@@ -15,6 +15,7 @@ GameMenu::GameMenu(ALLEGRO_DISPLAY * displayFromMain) : FontSize{64}, Number{1}
     ScrHeight=al_get_display_height(display);
     ScrWidth=al_get_display_width(display);
     init();
+
 }
 GameMenu::~GameMenu()
 {

@@ -44,10 +44,10 @@
 1480504494 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\player.cpp
 	"headers.h"
 
-1480875112 source:e:\c++\car game\gamec++\gamemap.cpp
+1481116070 source:e:\c++\car game\gamec++\gamemap.cpp
 	"headers.h"
 
-1480876123 e:\c++\car game\gamec++\headers.h
+1481126863 e:\c++\car game\gamec++\headers.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_primitives.h>
@@ -65,31 +65,31 @@
 	<cstdio>
 	<time.h>
 
-1480335089 source:e:\c++\car game\gamec++\gamemenu.cpp
+1481124643 source:e:\c++\car game\gamec++\gamemenu.cpp
 	"headers.h"
 
 1480619484 source:e:\c++\car game\gamec++\init.cpp
 	"headers.h"
 
-1480876402 source:e:\c++\car game\gamec++\main.cpp
+1481124831 source:e:\c++\car game\gamec++\main.cpp
 	"headers.h"
 
 1480362280 source:e:\c++\car game\gamec++\options.cpp
 	"headers.h"
 
-1480875112 source:e:\c++\car game\gamec++\player.cpp
+1481123638 source:e:\c++\car game\gamec++\player.cpp
 	"headers.h"
 
-1480875112 source:e:\c++\car game\gamec++\playerkeyboard.cpp
+1481126291 source:e:\c++\car game\gamec++\playerkeyboard.cpp
 	"headers.h"
 
 1479842682 source:e:\c++\car game\gamec++\timers.cpp
 	"headers.h"
 
-1480505264 source:e:\c++\car game\gamec++\window.cpp
+1481117942 source:e:\c++\car game\gamec++\window.cpp
 	"headers.h"
 
-1480879356 source:e:\c++\car game\gamec++\playermobile.cpp
+1481113240 source:e:\c++\car game\gamec++\playermobile.cpp
 	"headers.h"
 
 1480879182 source:e:\c++\car game\gamec++\socketclient.cpp
@@ -153,5 +153,11 @@
 	<string>
 
 1481061990 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard2.cpp
+	"headers.h"
+
+1481113910 source:e:\c++\car game\gamec++\playerkeyboard2.cpp
+	"headers.h"
+
+1481119148 source:e:\c++\car game\gamec++\obstacles.cpp
 	"headers.h"
 

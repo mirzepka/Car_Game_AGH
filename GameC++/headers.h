@@ -27,6 +27,7 @@ namespace patch
     }
 }
 */
+
 class Init
 {
 public:
@@ -62,7 +63,15 @@ public:
     int getWidth();
     ALLEGRO_DISPLAY * getDisplay();
 };
-
+class Obstacles{
+    double xCenter, yCenter;
+double scaleX,scaleY;
+ALLEGRO_COLOR color;
+public:
+Obstacles(double tempx=200,double tempy=200,double scax=100,double scay=200);
+bool isCollision(double x,double y,double angle);
+void draw();
+};
 class GameMap
 {
 private:
@@ -73,9 +82,10 @@ private:
     int freespace; //free space between squares
     std::vector<std::pair<double,double>> squareX;    //x: parzysta+nieparzysta, Y= parzysta + nieparzysta
     std::vector<std::pair<double,double>> squareY;
+    std::vector<Obstacles> obstac;   // przeszkody eliptyczne
     void init();
 public:
-    bool IsCollision(double,double);
+    bool IsCollision(double,double,double);
     GameMap();
     ~GameMap();
     void draw();
@@ -134,14 +144,18 @@ protected:
     double NewPosY,NewPosX;
     double tempAngle,tempMoveSpeed;
     double turning;
+    int keyL,keyR,keyU,keyD;
+
 public:
     Player(ALLEGRO_DISPLAY*,int,int);
     ~Player();
     void draw();
 };
+
 class PlayerKeyboard : public Player
 {
     public:
+        static bool secondPlayer;
     PlayerKeyboard(ALLEGRO_DISPLAY*,int,int);
     ~PlayerKeyboard();
     int movingKey();

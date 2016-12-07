@@ -1,8 +1,23 @@
 #include "headers.h"
-
+bool PlayerKeyboard::secondPlayer=0;
 PlayerKeyboard::PlayerKeyboard(ALLEGRO_DISPLAY* d,int x,int y) : Player(d,x,y)
 {
+
     al_register_event_source(eventQueue,al_get_keyboard_event_source());
+    if(PlayerKeyboard::secondPlayer){
+        keyL=ALLEGRO_KEY_A;
+        keyR=ALLEGRO_KEY_D;
+        keyU=ALLEGRO_KEY_W;
+        keyD=ALLEGRO_KEY_S;
+    }
+    else{
+        keyL=ALLEGRO_KEY_LEFT;
+        keyR=ALLEGRO_KEY_RIGHT;
+        keyU=ALLEGRO_KEY_UP;
+        keyD=ALLEGRO_KEY_DOWN;
+
+    }
+    PlayerKeyboard::secondPlayer=!PlayerKeyboard::secondPlayer;
 }
 PlayerKeyboard::~PlayerKeyboard()
 {
@@ -38,21 +53,21 @@ int PlayerKeyboard::movingKey()
                         gravity=2;
                    }
                     al_get_keyboard_state(&myKey1);
-                    if(al_key_down(&myKey1,ALLEGRO_KEY_LEFT))
+                    if(al_key_down(&myKey1,keyL))
                         {
                             tempAngle=angle;
                             angle=(angle-turning*sin(moveSpeed*(90.0/MAXF)*M_PI/180.0));//*abs(moveSpeed/10.0));
                             if(moveSpeed>acceleration && gravity<3)
                             gravity+=0.0015*moveSpeed;
                         }
-                    else if(al_key_down(&myKey1,ALLEGRO_KEY_RIGHT))
+                    else if(al_key_down(&myKey1,keyR))
                         {
                             tempAngle=angle;
                             angle=(angle+turning*sin(moveSpeed*(130.0/MAXF)*M_PI/180.0));//*abs(moveSpeed/10.0));
                             if(moveSpeed>acceleration && gravity>1)
                             gravity-=0.0015*moveSpeed;
                         }
-                    if(al_key_down(&myKey1,ALLEGRO_KEY_DOWN))
+                    if(al_key_down(&myKey1,keyD))
                         {
                             tempMoveSpeed=moveSpeed;
                             if(moveSpeed>0)
@@ -60,7 +75,7 @@ int PlayerKeyboard::movingKey()
                             else if(moveSpeed>-MAXB)
                                 moveSpeed-=acceleration;
                         }
-                    else if(al_key_down(&myKey1,ALLEGRO_KEY_UP))
+                    else if(al_key_down(&myKey1,keyU))
                         {
                             tempMoveSpeed=moveSpeed;
                             if(moveSpeed<MAXF)
@@ -81,7 +96,7 @@ int PlayerKeyboard::movingKey()
 
                         NewPosY=(moveSpeed*sin((angle)*M_PI/180.0));
                         NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
-                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY))
+                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
                             {
                                 angle=tempAngle;
                                 if(moveSpeed<3)

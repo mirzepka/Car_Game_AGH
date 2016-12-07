@@ -40,6 +40,7 @@
 		<Unit filename="GameMap.cpp" />
 		<Unit filename="GameMenu.cpp" />
 		<Unit filename="Init.cpp" />
+		<Unit filename="Obstacles.cpp" />
 		<Unit filename="Options.cpp" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="PlayerKeyboard.cpp" />

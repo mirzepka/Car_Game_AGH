@@ -9,6 +9,7 @@ int main()
     GameMenu mainMenu(mainWindow.getDisplay());
 while(OverFlag)
 {
+
         option = mainMenu.WhichOption();
     switch(option)
     {
@@ -45,7 +46,7 @@ while(OverFlag)
                 {
                     if(mainMenu.WhichOption3()==1)
                     {
-                        PlayerKeyboard2 g(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
+                        PlayerKeyboard g(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
                         while(1)
                         {
                             g.movingKey();

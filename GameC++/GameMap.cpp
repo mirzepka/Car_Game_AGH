@@ -3,6 +3,7 @@
 
 GameMap::GameMap()
 {
+
     MapSizeX=3200;
     MapSizeY=3200;
     freespace=100;
@@ -10,6 +11,7 @@ GameMap::GameMap()
     SY=SX;
     mapFront = al_load_bitmap("mapNO1.png");
     init();
+
 }
 GameMap::~GameMap()
 {
@@ -18,6 +20,7 @@ GameMap::~GameMap()
 }
 void GameMap::draw()
 {
+
     al_draw_bitmap(mapFront, 0, 0, 0);
     for(int i=0;i<SX*SY-1;i++)
     {
@@ -25,6 +28,10 @@ void GameMap::draw()
 
     }
     al_draw_line(0, 0, 3200, 0,al_map_rgb(10,0,0), 10);
+    for(auto x:obstac){
+        x.draw();
+    }
+
 }
 void GameMap::init()
 {
@@ -51,10 +58,16 @@ void GameMap::init()
         }
         a=0;
     }
+    for(int i=0;i<7;i++){
+        obstac.push_back(Obstacles(i*250,i*250,50+i*10,2*(50+i*10)));
+    }
 }
-bool GameMap::IsCollision(double posx,double posy)
-{
-    std::cout<<posx<<"--"<<posy<<std::endl;
+bool GameMap::IsCollision(double posx,double posy,double angle){
+    for(auto x:obstac){
+           if(x.isCollision(posx,posy,angle))
+           return true;
+    }
+  //  std::cout<<posx<<"--"<<posy<<std::endl;
     for(int i=0;i<SX*SY-1;i++)
     {
         if((posx>squareX[i].first) && (posx < squareX[i].second) && (posy >squareY[i].first) && (posy<squareY[i].second))
