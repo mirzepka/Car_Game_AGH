@@ -9,19 +9,19 @@ Obstacles::Obstacles(double tempx,double tempy,double scax,double scay){
 
 }
 bool Obstacles::isCollision(double x,double y,double angle){
-    std::cout<<(pow(y-yCenter,2)+pow((x-xCenter)*scaleY/scaleX,2))<<std::endl;
-    double xtmp,ytmp,wsp=65.0;
+    if((pow(y-yCenter,2)+pow((x-xCenter)*scaleY/scaleX,2)+100)>pow(scaleY,2)){  // sprawdza czy obiekt jest blisko i dopiero wtedy liczyczy nie ma zderzenia
+    double xtmp,ytmp,wsp=25.0;
     for(int i=0;i<2;i++){
-      xtmp=30*sin((angle+wsp+180.0*i)*M_PI/180.0)+x;
-      ytmp=30*cos((angle+wsp+180.0*i)*M_PI/180.0)+y;
+      xtmp=35*sin((angle+wsp+180.0*i)*M_PI/180.0)+x;
+      ytmp=35*cos((angle+wsp+180.0*i)*M_PI/180.0)+y;
 
-    al_draw_filled_rectangle(xtmp, ytmp, xtmp+20, ytmp+20,color);
+
       if((pow(ytmp-yCenter,2)+pow((xtmp-xCenter)*scaleY/scaleX,2))<pow(scaleY,2)){
         return true;
       }
-         xtmp=35*sin((angle+2*wsp+180.0*i)*M_PI/180.0)+x;
-      ytmp=35*cos((angle+2*wsp+180.0*i)*M_PI/180.0)+y;
-al_draw_filled_rectangle(xtmp, ytmp, xtmp+20, ytmp+20,color);
+         xtmp=35*sin((angle-wsp+180.0*i)*M_PI/180.0)+x;
+      ytmp=35*cos((angle-wsp+180.0*i)*M_PI/180.0)+y;
+
       if((pow(ytmp-yCenter,2)+pow((xtmp-xCenter)*scaleY/scaleX,2))<pow(scaleY,2)){
         return true;
     }
@@ -29,6 +29,10 @@ al_draw_filled_rectangle(xtmp, ytmp, xtmp+20, ytmp+20,color);
     }
 
         return false;
+    }
+    else {
+        return false;
+    }
 
 
 }
