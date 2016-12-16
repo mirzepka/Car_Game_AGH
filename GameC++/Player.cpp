@@ -19,8 +19,8 @@ Player::Player(ALLEGRO_DISPLAY* d,int x,int y)
     moveSpeed=0;
     gravity=2;
     acceleration=0.3;
-    MAXF=20;
-    MAXB=5;
+    MAXF=5;
+    MAXB=2;
     NewPosY=0;
     NewPosX=0;
     tempAngle=0;

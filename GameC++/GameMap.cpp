@@ -32,6 +32,7 @@ void GameMap::draw()
         x.draw();
     }
 
+
 }
 void GameMap::init()
 {
@@ -63,6 +64,7 @@ void GameMap::init()
     }
 }
 bool GameMap::IsCollision(double posx,double posy,double angle){
+
     for(auto x:obstac){
            if(x.isCollision(posx,posy,angle))
            return true;

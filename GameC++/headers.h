@@ -68,6 +68,10 @@ class Obstacles{
 double scaleX,scaleY;
 ALLEGRO_COLOR color;
 public:
+    //////////////////
+ static    double rogiX[4];
+static double rogiY[4];
+    ////////////////////
 Obstacles(double tempx=200,double tempy=200,double scax=100,double scay=200);
 bool isCollision(double x,double y,double angle);
 void draw();

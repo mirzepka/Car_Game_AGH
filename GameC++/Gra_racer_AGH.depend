@@ -44,10 +44,10 @@
 1480504494 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\player.cpp
 	"headers.h"
 
-1481127080 source:e:\c++\car game\gamec++\gamemap.cpp
+1481886966 source:e:\c++\car game\gamec++\gamemap.cpp
 	"headers.h"
 
-1481126863 e:\c++\car game\gamec++\headers.h
+1481886966 e:\c++\car game\gamec++\headers.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_primitives.h>
@@ -77,10 +77,10 @@
 1480362280 source:e:\c++\car game\gamec++\options.cpp
 	"headers.h"
 
-1481123638 source:e:\c++\car game\gamec++\player.cpp
+1481565071 source:e:\c++\car game\gamec++\player.cpp
 	"headers.h"
 
-1481126291 source:e:\c++\car game\gamec++\playerkeyboard.cpp
+1481887276 source:e:\c++\car game\gamec++\playerkeyboard.cpp
 	"headers.h"
 
 1479842682 source:e:\c++\car game\gamec++\timers.cpp
@@ -158,6 +158,6 @@
 1481113910 source:e:\c++\car game\gamec++\playerkeyboard2.cpp
 	"headers.h"
 
-1481119148 source:e:\c++\car game\gamec++\obstacles.cpp
+1481888991 source:e:\c++\car game\gamec++\obstacles.cpp
 	"headers.h"
 
