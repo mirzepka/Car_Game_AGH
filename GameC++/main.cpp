@@ -46,7 +46,7 @@ while(OverFlag)
                 {
                     if(mainMenu.WhichOption3()==1)
                     {
-                        PlayerKeyboard g(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
+                        PlayerKeyboard2 g(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
                         while(1)
                         {
                             g.movingKey();

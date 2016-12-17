@@ -89,6 +89,8 @@ private:
     std::vector<Obstacles> obstac;   // przeszkody eliptyczne
     void init();
 public:
+    static double xtmp[4];
+    static double ytmp[4];
     bool IsCollision(double,double,double);
     GameMap();
     ~GameMap();

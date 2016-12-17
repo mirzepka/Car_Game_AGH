@@ -98,16 +98,16 @@ int PlayerKeyboard::movingKey()
                         NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
                         if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
                             {
-                               /* angle=tempAngle;
-                                if(moveSpeed<3)
-                                {
-                                    moveSpeed=0;
+                               angle=tempAngle;
+
+                                    //moveSpeed=0;
                                     NewPosX=0;
                                     NewPosY=0;
-                                }
+
+
                                 moveSpeed=-moveSpeed/2.0;
                                 posY-=NewPosY;
-                                posX-=NewPosX;*/
+                                posX-=NewPosX;
                             }
                             else
                             {
@@ -135,8 +135,14 @@ int PlayerKeyboard::movingKey()
             al_clear_to_color(al_map_rgb(0,0,240));
             mapa.draw();
               for(int i=0;i<4;i++)
-            al_draw_filled_circle(Obstacles::rogiX[i],Obstacles::rogiY[i],5, al_map_rgb(i*100%255,i*90%255,i*100%255));
-                    std::cout<<"ROGI"<<Obstacles::rogiX[0]<<std::endl;
+                {
+                al_draw_filled_circle(Obstacles::rogiX[i],Obstacles::rogiY[i],5, al_map_rgb(i*100%255,i*90%255,i*100%255));
+                al_draw_filled_circle(GameMap::xtmp[i],GameMap::ytmp[i],5, al_map_rgb(i*100%255,i*90%255,i*100%255));
+            }
+
+                   // std::cout<<"ROGI"<<Obstacles::rogiX[0]<<std::endl;
+                    std::cout<<moveSpeed<<std::endl;
+                    std::cout<<angle<<std::endl;
             al_draw_rotated_bitmap(model,al_get_bitmap_width(model)/2,al_get_bitmap_height(model)/2,posX,posY,angle*M_PI/(180.0)+M_PI/2.0,NULL);
             al_flip_display();
 
