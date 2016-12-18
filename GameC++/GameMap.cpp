@@ -3,11 +3,12 @@
 
 GameMap::GameMap()
 {
-
+    numberOfSquares=0;
+    numberOfObstacles=0;
     MapSizeX=3200;
     MapSizeY=3200;
     freespace=100;
-    SX=10;
+    SX=5;
     SY=SX;
     mapFront = al_load_bitmap("mapNO1.png");
     init();
@@ -22,7 +23,7 @@ void GameMap::draw()
 {
 
     al_draw_bitmap(mapFront, 0, 0, 0);
-    for(int i=0;i<SX*SY-1;i++)
+    for(int i=0;i<numberOfSquares;i++)
     {
            al_draw_filled_rectangle(squareX[i].first,squareY[i].first,squareX[i].second, squareY[i].second, al_map_rgb(i*100%255,i*90%255,i*100%255));
 
@@ -36,7 +37,7 @@ void GameMap::draw()
 }
 void GameMap::init()
 {
-    int a=1;
+    int a=1,b=0;
     int temporary1,temporary2,tmp3;
     int XWidth=(MapSizeX-SX*freespace)/SX;
     int XHeight=(MapSizeY-SY*freespace)/SY;
@@ -46,22 +47,38 @@ void GameMap::init()
         temporary2=0;
          for(int j=a;j<SY;j++)
         {
-            tmp3=rand()%(3*XWidth/4);
-            temporary1=i*(XWidth+freespace)+tmp3;
-            temporary2=50+temporary1+rand()%(XWidth-tmp3);
-                std::cout<<temporary1<<"--"<<temporary2<<"  ";
-            squareX.push_back(std::pair<double,double>(temporary1,temporary2));
-        tmp3=rand()%(3*XHeight/4);
-            temporary1=j*(XHeight+freespace)+tmp3;
-            temporary2=50+temporary1+rand()%(XHeight-tmp3);
-                std::cout<<temporary1<<"--"<<temporary2<<std::endl;
-            squareY.push_back(std::pair<double,double>(temporary1,temporary2));
+            b=rand()%10;
+            if(j!=b)
+            {
+                numberOfSquares++;
+                tmp3=rand()%(3*XWidth/4);
+                temporary1=i*(XWidth+freespace)+tmp3;
+                temporary2=50+temporary1+rand()%(XWidth-tmp3);
+
+                squareX.push_back(std::pair<double,double>(temporary1,temporary2));
+                tmp3=rand()%(3*XHeight/4);
+                temporary1=j*(XHeight+freespace)+tmp3;
+                temporary2=50+temporary1+rand()%(XHeight-tmp3);
+
+                squareY.push_back(std::pair<double,double>(temporary1,temporary2));
+            }
+            else
+            {
+                numberOfObstacles++;
+               obstac.push_back(Obstacles(XWidth/2+(freespace+XWidth)*i,XHeight/2+(freespace+XHeight)*j,50+rand()%(XWidth/2),50+rand()%(XHeight/2)));
+            }
         }
         a=0;
     }
-    for(int i=0;i<7;i++){
-        obstac.push_back(Obstacles(i*250,i*250,50+i*10,2*(50+i*10)));
-    }
+}
+bool GameMap::isCollisionBox()
+{
+    for(int j=0;j<8;j++)
+        {
+        if((Obstacles::rogiX[j]<0) || (Obstacles::rogiX[j] > MapSizeX) || (Obstacles::rogiY[j] <0) || (Obstacles::rogiY[j]>MapSizeY))
+            return true;
+        }
+    return false;
 }
 bool GameMap::IsCollision(double posx,double posy,double angle){
 
@@ -70,8 +87,8 @@ bool GameMap::IsCollision(double posx,double posy,double angle){
            if(x.isCollision(posx,posy,angle))
            return true;
     }
-
-    for(int i=0;i<SX*SY-1;i++)
+    // kod na kwadraty korzystac z funkcji wywolanej w obstac.iscollision wiec przynajmniej jedno kolko musik byc na mapie
+    for(int i=0;i<numberOfSquares;i++)
     {
         for(int j=0;j<8;j++)
             {
@@ -79,5 +96,9 @@ bool GameMap::IsCollision(double posx,double posy,double angle){
                 return true;
             }
     }
+    //brzegi
+    if(isCollisionBox())
+        return true;
     return false;
+
 }

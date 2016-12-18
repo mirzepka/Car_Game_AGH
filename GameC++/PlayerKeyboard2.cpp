@@ -2,6 +2,7 @@
 
 PlayerKeyboard2::PlayerKeyboard2(ALLEGRO_DISPLAY* d,int x,int y) : PlayerKeyboard(d,x,y)
 {
+    collisionFlag2=false;
     posX2=x;                                                                         //starting position
     posY2=y;
     angle2=M_PI/2.0;
@@ -139,28 +140,40 @@ int PlayerKeyboard2::movingKey()
                         if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
                             {
                                angle=tempAngle;
-                                if(moveSpeed>1 || moveSpeed<-1)
-                                   moveSpeed=0;
+                                if(collisionFlag1==false)
+                                {
+                                    collisionFlag1=true;
+                                    moveSpeed=0;
+                                }
                             }
                             else
                             {
+                                collisionFlag1=false;
                                 posY+=NewPosY;
                                 posX+=NewPosX;
                             }
+                           std::cout<<moveSpeed<<std::endl;
+                           std::cout<<"posx,y= "<<posX<<" "<<posY<<std::endl;
+                           std::cout<<"new "<<posX+NewPosX<<" "<<posY+NewPosY<<std::endl;
 // ------------------------CHANGING POSITION OF PLAYER 2 ----------------------
                         NewPosY2=(moveSpeed2*sin((angle2)*M_PI/180.0));
                         NewPosX2=(moveSpeed2*cos((angle2)*M_PI/180.0));
                         if (mapa.IsCollision(posX2+NewPosX2,posY2+NewPosY2,angle2))
                             {
                                 angle2=tempAngle2;
-                                if(moveSpeed2>1 || moveSpeed2<-1)
-                                   moveSpeed2=0;
+                                if(collisionFlag2=false)
+                                {
+                                    collisionFlag2=true;
+                                    moveSpeed2=0;
+                                }
                             }
                             else
                             {
+                                collisionFlag2=false;
                                 posY2+=NewPosY2;
                                 posX2+=NewPosX2;
                             }
+
 //--------------------CAMERA----------------------------------------------------------------------------------
                     al_identity_transform(&camera);
                     al_translate_transform(&camera,-posX+screenx/2,-posY+screeny);

@@ -99,11 +99,15 @@ int PlayerKeyboard::movingKey()
                         if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
                             {
                                angle=tempAngle;
-                                if(moveSpeed>1 || moveSpeed<-1)
-                                   moveSpeed=0;
+                                if(collisionFlag1==false)
+                                {
+                                    collisionFlag1=true;
+                                    moveSpeed=0;
+                                }
                             }
                             else
                             {
+                                collisionFlag1=false;
                                 posY+=NewPosY;
                                 posX+=NewPosX;
                             }

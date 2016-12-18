@@ -82,12 +82,14 @@ private:
     double MapSizeX,MapSizeY;
     ALLEGRO_BITMAP *mapFront;
     //ALLEGRO_BITMAP *mapBack;
+    int numberOfSquares,numberOfObstacles;
     int SX,SY;      // number of squares x and y
     int freespace; //free space between squares
     std::vector<std::pair<double,double>> squareX;    //x: parzysta+nieparzysta, Y= parzysta + nieparzysta
     std::vector<std::pair<double,double>> squareY;
     std::vector<Obstacles> obstac;   // przeszkody eliptyczne
     void init();
+    bool isCollisionBox();
 public:
     bool IsCollision(double,double,double);
     GameMap();
@@ -149,6 +151,7 @@ protected:
     double tempAngle,tempMoveSpeed;
     double turning;
     int keyL,keyR,keyU,keyD;
+    bool collisionFlag1;
 
 public:
     Player(ALLEGRO_DISPLAY*,int,int);
@@ -209,4 +212,5 @@ private:
     public:
     PlayerKeyboard2(ALLEGRO_DISPLAY*,int,int);
     int movingKey();
+    bool collisionFlag2;
 };
