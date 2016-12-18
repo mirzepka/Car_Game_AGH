@@ -69,8 +69,8 @@ double scaleX,scaleY;
 ALLEGRO_COLOR color;
 public:
     //////////////////
- static    double rogiX[4];
-static double rogiY[4];
+ static    double rogiX[8];
+static double rogiY[8];
     ////////////////////
 Obstacles(double tempx=200,double tempy=200,double scax=100,double scay=200);
 bool isCollision(double x,double y,double angle);
@@ -89,8 +89,6 @@ private:
     std::vector<Obstacles> obstac;   // przeszkody eliptyczne
     void init();
 public:
-    static double xtmp[4];
-    static double ytmp[4];
     bool IsCollision(double,double,double);
     GameMap();
     ~GameMap();

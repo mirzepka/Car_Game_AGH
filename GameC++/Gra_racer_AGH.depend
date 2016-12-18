@@ -98,10 +98,10 @@
 	<Winsock2.h>
 	<string>
 
-1481983436 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
+1482062768 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
 	"headers.h"
 
-1481983175 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
+1482062754 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_primitives.h>
@@ -131,7 +131,7 @@
 1481978851 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\player.cpp
 	"headers.h"
 
-1481983547 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
+1482062603 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
 	"headers.h"
 
 1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\timers.cpp
@@ -161,6 +161,6 @@
 1481888991 source:e:\c++\car game\gamec++\obstacles.cpp
 	"headers.h"
 
-1481978851 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\obstacles.cpp
+1482062362 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\obstacles.cpp
 	"headers.h"
 

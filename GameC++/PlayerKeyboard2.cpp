@@ -138,16 +138,9 @@ int PlayerKeyboard2::movingKey()
                         NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
                         if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
                             {
-                                angle=tempAngle;
-                                if(moveSpeed<3)
-                                {
-                                    moveSpeed=0;
-                                    NewPosX=0;
-                                    NewPosY=0;
-                                }
-                                moveSpeed=-moveSpeed/2.0;
-                                posY-=NewPosY;
-                                posX-=NewPosX;
+                               angle=tempAngle;
+                                if(moveSpeed>1 || moveSpeed<-1)
+                                   moveSpeed=0;
                             }
                             else
                             {
@@ -160,15 +153,8 @@ int PlayerKeyboard2::movingKey()
                         if (mapa.IsCollision(posX2+NewPosX2,posY2+NewPosY2,angle2))
                             {
                                 angle2=tempAngle2;
-                                if(moveSpeed2<3)
-                                {
-                                    moveSpeed2=0;
-                                    NewPosX2=0;
-                                    NewPosY2=0;
-                                }
-                                moveSpeed2=-moveSpeed2/2.0;
-                                posY2-=NewPosY2;
-                                posX2-=NewPosX2;
+                                if(moveSpeed2>1 || moveSpeed2<-1)
+                                   moveSpeed2=0;
                             }
                             else
                             {
