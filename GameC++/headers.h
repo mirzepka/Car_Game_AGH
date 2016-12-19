@@ -81,7 +81,7 @@ class Checkpoints
 {
     private:
     double r;
-    std::vector <std::pair<double,double>> checkpointObj;
+    std::vector <Obstacles> checkpointObj;
     public:
         void draw();
         Checkpoints();

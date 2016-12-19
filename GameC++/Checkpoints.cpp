@@ -33,7 +33,7 @@ Checkpoints::Checkpoints(int size1,std::vector<std::pair<double,double>> squareX
             if(check1==false && check2== false)
                 break;
         }
-        checkpointObj.push_back(std::pair<double,double>(x1,y1));
+        checkpointObj.push_back(Obstacles(x1,y1,r,r));
     }
     std::random_shuffle ( checkpointObj.begin(), checkpointObj.end() );
 }
@@ -41,6 +41,6 @@ void Checkpoints::draw()
 {
     for(auto x:checkpointObj)
     {
-       al_draw_filled_ellipse(x.first, x.second, r, r,al_map_rgb(255,0,0));
+      x.draw();
     }
 }
