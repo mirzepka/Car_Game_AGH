@@ -22,6 +22,7 @@ Checkpoints::Checkpoints(int size1,std::vector<std::pair<double,double>> squareX
                 {
                     if(x1>x.first && x1<x.second && y1>squareY[i].first && y1<squareY[i].second)
                         check1=true;
+                    licznik++;
                 }
             for(auto x:obstac)
                {

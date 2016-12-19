@@ -33,7 +33,7 @@ void GameMap::draw()
     for(auto x:obstac){
         x.draw();
     }
-    //checkP.draw();
+    checkP.draw();
 
 }
 void GameMap::init()

@@ -9,7 +9,7 @@ PlayerKeyboard2::PlayerKeyboard2(ALLEGRO_DISPLAY* d,int x,int y) : PlayerKeyboar
     moveSpeed2=0;
     gravity2=2;
     acceleration2=0.3;
-    MAXF2=20;
+    MAXF2=5;
     MAXB2=5;
     NewPosY2=0;
     NewPosX2=0;
@@ -161,7 +161,7 @@ int PlayerKeyboard2::movingKey()
                         if (mapa.IsCollision(posX2+NewPosX2,posY2+NewPosY2,angle2))
                             {
                                 angle2=tempAngle2;
-                                if(collisionFlag2=false)
+                                if(collisionFlag2==false)
                                 {
                                     collisionFlag2=true;
                                     moveSpeed2=-moveSpeed2/2.0;
