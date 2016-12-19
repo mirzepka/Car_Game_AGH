@@ -13,14 +13,16 @@ Obstacles::Obstacles(double tempx,double tempy,double scax,double scay){
     values.push_back(scaleY);
 }
 bool Obstacles::isCollision(const double *rogiX,const double *rogiY,const double &x,const double &y,const double &angle){
-
-    for(int i=0;i<8;i++)
-    {
-        if((pow(rogiY[i]-yCenter,2)+pow((rogiX[i]-xCenter)*scaleY/scaleX,2))<=pow(scaleY,2))
-        {
-            return true;
-        }
-    }
+    if((pow(rogiY[1]-yCenter,2)+pow((rogiX[1]-xCenter)*scaleY/scaleX,2))>(pow(scaleY,2)+70.0))
+       {
+            for(int i=0;i<8;i++)
+            {
+                if((pow(rogiY[i]-yCenter,2)+pow((rogiX[i]-xCenter)*scaleY/scaleX,2))<=pow(scaleY,2))
+                {
+                    return true;
+                }
+            }
+       }
         return false;
 
 

@@ -91,11 +91,14 @@ bool GameMap::IsCollision(const double &posx,const double &posy,const double &an
 
     for(int i=0;i<numberOfSquares;i++)
     {
+
+        if(pow(rogiX[1]-(squareX[i].second-squareX[i].first)/2,2)+pow(rogiY[1]-(squareY[i].second-squareY[i].first)/2,2)>sqrt((pow((squareX[i].second-squareX[i].first)/2,2))+(pow((squareY[i].second-squareY[i].first)/2,2) )+70.0)){
         for(int j=0;j<8;j++)
             {
             if((rogiX[j]>squareX[i].first) && (rogiX[j] < squareX[i].second) && (rogiY[j] >squareY[i].first) && (rogiY[j]<squareY[i].second))
                 return true;
             }
+        }
     }
     //brzegi
     if(isCollisionBox())
