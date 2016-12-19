@@ -4,6 +4,7 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 #include <iostream>
+#include <algorithm>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
@@ -65,20 +66,31 @@ public:
 };
 class Obstacles{
     double xCenter, yCenter;
-double scaleX,scaleY;
-ALLEGRO_COLOR color;
+    double scaleX,scaleY;
+    ALLEGRO_COLOR color;
+    std::vector<double> values;
 public:
     //////////////////
- static    double rogiX[8];
-static double rogiY[8];
     ////////////////////
-Obstacles(double tempx=200,double tempy=200,double scax=100,double scay=200);
-bool isCollision(double x,double y,double angle);
-void draw();
+    Obstacles(double tempx=200,double tempy=200,double scax=100,double scay=200);
+    bool isCollision(const double *,const double *,const double &x,const double &y,const double &angle);
+    void draw();
+    std::vector<double> returnValues();
+};
+class Checkpoints
+{
+    private:
+    double r;
+    std::vector <std::pair<double,double>> checkpointObj;
+    public:
+        void draw();
+        Checkpoints();
+        Checkpoints(int,std::vector<std::pair<double,double>>,std::vector<std::pair<double,double>>,std::vector<Obstacles>,double,double);
 };
 class GameMap
 {
 private:
+    int numberOfCheckpoints;
     double MapSizeX,MapSizeY;
     ALLEGRO_BITMAP *mapFront;
     //ALLEGRO_BITMAP *mapBack;
@@ -88,10 +100,13 @@ private:
     std::vector<std::pair<double,double>> squareX;    //x: parzysta+nieparzysta, Y= parzysta + nieparzysta
     std::vector<std::pair<double,double>> squareY;
     std::vector<Obstacles> obstac;   // przeszkody eliptyczne
+    Checkpoints checkP;
     void init();
+    double rogiX[8],rogiY[8];
     bool isCollisionBox();
+    void rogiCalculate(const double &,const double &,const double &);
 public:
-    bool IsCollision(double,double,double);
+    bool IsCollision(const double &,const double &,const double &);
     GameMap();
     ~GameMap();
     void draw();
@@ -214,3 +229,4 @@ private:
     int movingKey();
     bool collisionFlag2;
 };
+

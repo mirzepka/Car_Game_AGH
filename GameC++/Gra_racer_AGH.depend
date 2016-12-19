@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1480616798 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\main.cpp
+1482158612 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\checkpoints.cpp
 	"headers.h"
 
-1480671657 c:\users\zajac\documents\projekt gra\gra_racer_agh\headers.h
+1482159997 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_primitives.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
 	<iostream>
+	<algorithm>
 	<allegro5/allegro_image.h>
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
@@ -20,104 +21,8 @@
 	<cstdio>
 	<time.h>
 
-1480619484 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\init.cpp
+1482160731 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
 	"headers.h"
-
-1480362280 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\options.cpp
-	"headers.h"
-
-1480505264 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\window.cpp
-	"headers.h"
-
-1480672754 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\gamemap.cpp
-	"headers.h"
-
-1480335089 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\gamemenu.cpp
-	"headers.h"
-
-1480673417 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\playerkeyboard.cpp
-	"headers.h"
-
-1479842682 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\timers.cpp
-	"headers.h"
-
-1480504494 source:c:\users\zajac\documents\projekt gra\gra_racer_agh\player.cpp
-	"headers.h"
-
-1481886966 source:e:\c++\car game\gamec++\gamemap.cpp
-	"headers.h"
-
-1481886966 e:\c++\car game\gamec++\headers.h
-	<allegro5/allegro.h>
-	<allegro5/allegro_native_dialog.h>
-	<allegro5/allegro_primitives.h>
-	<allegro5/allegro_font.h>
-	<allegro5/allegro_ttf.h>
-	<iostream>
-	<allegro5/allegro_image.h>
-	<allegro5/allegro_audio.h>
-	<allegro5/allegro_acodec.h>
-	<cmath>
-	<string>
-	<vector>
-	<sstream>
-	<fstream>
-	<cstdio>
-	<time.h>
-
-1481124643 source:e:\c++\car game\gamec++\gamemenu.cpp
-	"headers.h"
-
-1480619484 source:e:\c++\car game\gamec++\init.cpp
-	"headers.h"
-
-1481127665 source:e:\c++\car game\gamec++\main.cpp
-	"headers.h"
-
-1480362280 source:e:\c++\car game\gamec++\options.cpp
-	"headers.h"
-
-1481565071 source:e:\c++\car game\gamec++\player.cpp
-	"headers.h"
-
-1481887276 source:e:\c++\car game\gamec++\playerkeyboard.cpp
-	"headers.h"
-
-1479842682 source:e:\c++\car game\gamec++\timers.cpp
-	"headers.h"
-
-1481117942 source:e:\c++\car game\gamec++\window.cpp
-	"headers.h"
-
-1481113240 source:e:\c++\car game\gamec++\playermobile.cpp
-	"headers.h"
-
-1480879182 source:e:\c++\car game\gamec++\socketclient.cpp
-	"headers.h"
-	<iostream>
-	<Winsock2.h>
-	<string>
-
-1482095649 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
-	"headers.h"
-
-1482097950 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
-	<allegro5/allegro.h>
-	<allegro5/allegro_native_dialog.h>
-	<allegro5/allegro_primitives.h>
-	<allegro5/allegro_font.h>
-	<allegro5/allegro_ttf.h>
-	<iostream>
-	<allegro5/allegro_image.h>
-	<allegro5/allegro_audio.h>
-	<allegro5/allegro_acodec.h>
-	<cmath>
-	<string>
-	<vector>
-	<sstream>
-	<fstream>
-	<cstdio>
-	<time.h>
 
 1481457192 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemenu.cpp
 	"headers.h"
@@ -125,22 +30,22 @@
 1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\init.cpp
 	"headers.h"
 
+1481979151 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\main.cpp
+	"headers.h"
+
+1482159997 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\obstacles.cpp
+	"headers.h"
+
 1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\options.cpp
 	"headers.h"
 
-1482097950 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\player.cpp
+1482099050 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\player.cpp
 	"headers.h"
 
-1482098432 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
+1482160292 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
 	"headers.h"
 
-1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\timers.cpp
-	"headers.h"
-
-1481457192 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\window.cpp
-	"headers.h"
-
-1481979151 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\main.cpp
+1482164955 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard2.cpp
 	"headers.h"
 
 1481561370 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playermobile.cpp
@@ -152,15 +57,9 @@
 	<Winsock2.h>
 	<string>
 
-1482098432 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard2.cpp
+1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\timers.cpp
 	"headers.h"
 
-1481113910 source:e:\c++\car game\gamec++\playerkeyboard2.cpp
-	"headers.h"
-
-1481888991 source:e:\c++\car game\gamec++\obstacles.cpp
-	"headers.h"
-
-1482062362 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\obstacles.cpp
+1481457192 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\window.cpp
 	"headers.h"
 

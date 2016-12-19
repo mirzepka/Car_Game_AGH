@@ -143,7 +143,7 @@ int PlayerKeyboard2::movingKey()
                                 if(collisionFlag1==false)
                                 {
                                     collisionFlag1=true;
-                                    moveSpeed=0;
+                                    moveSpeed=-moveSpeed/2.0;
                                 }
                             }
                             else
@@ -164,7 +164,7 @@ int PlayerKeyboard2::movingKey()
                                 if(collisionFlag2=false)
                                 {
                                     collisionFlag2=true;
-                                    moveSpeed2=0;
+                                    moveSpeed2=-moveSpeed2/2.0;
                                 }
                             }
                             else

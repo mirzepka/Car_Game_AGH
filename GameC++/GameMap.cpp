@@ -8,11 +8,12 @@ GameMap::GameMap()
     MapSizeX=3200;
     MapSizeY=3200;
     freespace=100;
+    numberOfCheckpoints=10;
     SX=5;
     SY=SX;
     mapFront = al_load_bitmap("mapNO1.png");
     init();
-
+    checkP=Checkpoints(numberOfCheckpoints,squareX,squareY,obstac,MapSizeX,MapSizeY);
 }
 GameMap::~GameMap()
 {
@@ -32,7 +33,7 @@ void GameMap::draw()
     for(auto x:obstac){
         x.draw();
     }
-
+    //checkP.draw();
 
 }
 void GameMap::init()
@@ -75,24 +76,24 @@ bool GameMap::isCollisionBox()
 {
     for(int j=0;j<8;j++)
         {
-        if((Obstacles::rogiX[j]<0) || (Obstacles::rogiX[j] > MapSizeX) || (Obstacles::rogiY[j] <0) || (Obstacles::rogiY[j]>MapSizeY))
+        if((rogiX[j]<0) || (rogiX[j] > MapSizeX) || (rogiY[j] <0) || (rogiY[j]>MapSizeY))
             return true;
         }
     return false;
 }
-bool GameMap::IsCollision(double posx,double posy,double angle){
-
+bool GameMap::IsCollision(const double &posx,const double &posy,const double &angle){
+    rogiCalculate(posx,posy,angle);
 
     for(auto x:obstac){
-           if(x.isCollision(posx,posy,angle))
-           return true;
-    }
-    // kod na kwadraty korzystac z funkcji wywolanej w obstac.iscollision wiec przynajmniej jedno kolko musik byc na mapie
+          if(x.isCollision(rogiX,rogiY,posx,posy,angle))
+          return true;
+   }
+
     for(int i=0;i<numberOfSquares;i++)
     {
         for(int j=0;j<8;j++)
             {
-            if((Obstacles::rogiX[j]>squareX[i].first) && (Obstacles::rogiX[j] < squareX[i].second) && (Obstacles::rogiY[j] >squareY[i].first) && (Obstacles::rogiY[j]<squareY[i].second))
+            if((rogiX[j]>squareX[i].first) && (rogiX[j] < squareX[i].second) && (rogiY[j] >squareY[i].first) && (rogiY[j]<squareY[i].second))
                 return true;
             }
     }
@@ -101,4 +102,26 @@ bool GameMap::IsCollision(double posx,double posy,double angle){
         return true;
     return false;
 
+}
+void GameMap::rogiCalculate(const double &x,const double &y,const double &angle)
+{
+     double xtmp,ytmp,wsp=25.0;
+    for(int i=0;i<2;i++){
+        xtmp=35*sin((-angle+wsp+90.0+180.0*i)*M_PI/180.0)+x;
+        ytmp=35*cos((-angle+wsp+90.0+180.0*i)*M_PI/180.0)+y;
+        rogiX[i]=xtmp;
+        rogiY[i]=ytmp;
+        xtmp=35*sin((-angle-wsp+90.0+180.0*i)*M_PI/180.0)+x;
+        ytmp=35*cos((-angle-wsp+90.0+180.0*i)*M_PI/180.0)+y;
+        rogiX[i+2]=xtmp;
+        rogiY[i+2]=ytmp;
+    }
+    rogiX[4]=x+((rogiX[0]-rogiX[2])/2.0);
+    rogiY[4]=y+((rogiY[0]-rogiY[2])/2.0);
+    rogiX[5]=x+((rogiX[2]-rogiX[1])/2.0);
+    rogiY[5]=y+((rogiY[2]-rogiY[1])/2.0);
+    rogiX[6]=x+((rogiX[1]-rogiX[3])/2.0);
+    rogiY[6]=y+((rogiY[1]-rogiY[3])/2.0);
+    rogiX[7]=x+((rogiX[3]-rogiX[0])/2.0);
+    rogiY[7]=y+((rogiY[3]-rogiY[0])/2.0);
 }

@@ -133,7 +133,7 @@ int PlayerKeyboard::movingKey()
             mapa.draw();
               for(int i=0;i<8;i++)
                 {
-                al_draw_filled_circle(Obstacles::rogiX[i],Obstacles::rogiY[i],5, al_map_rgb(i*100%255,i*90%255,i*100%255));
+              //  al_draw_filled_circle(Obstacles::rogiX[i],Obstacles::rogiY[i],5, al_map_rgb(i*100%255,i*90%255,i*100%255));
                // al_draw_filled_circle(GameMap::xtmp[i],GameMap::ytmp[i],5, al_map_rgb(i*100%255,i*90%255,i*100%255));
             }
 
