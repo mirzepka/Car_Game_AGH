@@ -90,7 +90,7 @@ std::cout<<"test"<<acceleration*(double((double)TempY-140.0))/60.0<<std::endl;
 
                         NewPosY=(moveSpeed*sin((angle)*M_PI/180.0));
                         NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
-                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
+                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle,checkpointCounter1))
                            {
                                 std::cout<<"kolizja"<<std::endl;
                                 angle=tempAngle;

@@ -17,7 +17,7 @@
 #include <time.h>
 #define M_PI 3.14159265358979323846
 #define FPS 60
-/*
+
 namespace patch
 {
     template < typename T > std::string to_string( const T& n )
@@ -27,7 +27,7 @@ namespace patch
         return stm.str() ;
     }
 }
-*/
+
 
 class Init
 {
@@ -75,6 +75,7 @@ public:
     Obstacles(double tempx=200,double tempy=200,double scax=100,double scay=200);
     bool isCollision(const double *,const double *,const double &x,const double &y,const double &angle);
     void draw();
+    void drawColor(ALLEGRO_COLOR);
     std::vector<double> returnValues();
 };
 
@@ -89,6 +90,7 @@ private:
     int SX,SY;      // number of squares x and y
     int promienCheckpoint;
     int freespace; //free space between squares
+    Obstacles * currentCheckpoint;
     std::vector<std::pair<double,double>> squareX;    //x: parzysta+nieparzysta, Y= parzysta + nieparzysta
     std::vector<std::pair<double,double>> squareY;
     std::vector<Obstacles> obstac;   // przeszkody eliptyczne
@@ -99,10 +101,11 @@ private:
     void rogiCalculate(const double &,const double &,const double &);
     void initCheckpoints();
 public:
-    bool IsCollision(const double &,const double &,const double &);
+    bool IsCollision(const double &,const double &,const double &,int &);
     GameMap();
     ~GameMap();
     void draw();
+    void drawingCheckpoint(int n);
 
 };
 
@@ -143,11 +146,12 @@ class Player
 {
 protected:
     GameMap mapa;
-    ALLEGRO_TIMER* frameTimer;
+    ALLEGRO_TIMER* frameTimer,*speedTimer;
     ALLEGRO_DISPLAY* display;
     ALLEGRO_EVENT_QUEUE * eventQueue;
     ALLEGRO_BITMAP* model;
     ALLEGRO_TRANSFORM camera;
+    int checkpointCounter1;
     double screenx,screeny;
     double posX,posY;                                          //current position
     double moveSpeed;
@@ -165,6 +169,8 @@ public:
     Player(ALLEGRO_DISPLAY*,int,int);
     ~Player();
     void draw();
+    void drawingHUD1();
+    void drawingHUD();
 };
 
 class PlayerKeyboard : public Player
@@ -203,6 +209,7 @@ class PlayerMobile : public Player
 class PlayerKeyboard2 : public PlayerKeyboard
 {
 private:
+    int checkpointCounter2;
     ALLEGRO_BITMAP* model2;
     ALLEGRO_BITMAP* screen1;
     ALLEGRO_BITMAP* screen2;
@@ -221,5 +228,5 @@ private:
     PlayerKeyboard2(ALLEGRO_DISPLAY*,int,int);
     int movingKey();
     bool collisionFlag2;
+    void drawingHUD2();
 };
-

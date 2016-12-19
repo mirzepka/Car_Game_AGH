@@ -96,7 +96,7 @@ int PlayerKeyboard::movingKey()
 
                         NewPosY=(moveSpeed*sin((angle)*M_PI/180.0));
                         NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
-                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
+                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle,checkpointCounter1))
                             {
                                angle=tempAngle;
                                 if(collisionFlag1==false)
@@ -118,7 +118,7 @@ int PlayerKeyboard::movingKey()
                       // al_translate_transform(&camera,screenx,screeny);
                         //al_translate_transform(&camera,-posX+screenx,-posY+screeny);
                      // al_rotate_transform(&camera,-(angle)*3.14/(180.0)-3.14/2.0);
-                      al_translate_transform(&camera,-posX+screenx,-posY+screeny);
+                      al_translate_transform(&camera,-posX+screenx,-posY+4*screeny/5);
                        //al_scale_transform(&camera,1-fabs(0.008*moveSpeed),1-fabs(0.008*moveSpeed));
                         //al_translate_transform(&camera,screenx,screeny);
                         //al_build_transform(&camera, screenx-posX, screeny-posY,1, 1, 0);
@@ -131,16 +131,9 @@ int PlayerKeyboard::movingKey()
             draw=false;
             al_clear_to_color(al_map_rgb(0,0,240));
             mapa.draw();
-              for(int i=0;i<8;i++)
-                {
-              //  al_draw_filled_circle(Obstacles::rogiX[i],Obstacles::rogiY[i],5, al_map_rgb(i*100%255,i*90%255,i*100%255));
-               // al_draw_filled_circle(GameMap::xtmp[i],GameMap::ytmp[i],5, al_map_rgb(i*100%255,i*90%255,i*100%255));
-            }
-
-                   // std::cout<<"ROGI"<<Obstacles::rogiX[0]<<std::endl;
-                    std::cout<<moveSpeed<<std::endl;
-                    std::cout<<angle<<std::endl;
+            mapa.drawingCheckpoint(checkpointCounter1);
             al_draw_rotated_bitmap(model,al_get_bitmap_width(model)/2,al_get_bitmap_height(model)/2,posX,posY,angle*M_PI/(180.0)+M_PI/2.0,NULL);
+            drawingHUD();
             al_flip_display();
 
        }

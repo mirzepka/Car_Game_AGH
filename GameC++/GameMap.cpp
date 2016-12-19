@@ -14,7 +14,8 @@ GameMap::GameMap()
     mapFront = al_load_bitmap("mapNO1.png");
     init();
     promienCheckpoint=20;
-
+    initCheckpoints();
+    currentCheckpoint = new Obstacles(checkpointObj[0].first,checkpointObj[0].second,promienCheckpoint,promienCheckpoint);
 }
 GameMap::~GameMap()
 {
@@ -82,7 +83,7 @@ bool GameMap::isCollisionBox()
         }
     return false;
 }
-bool GameMap::IsCollision(const double &posx,const double &posy,const double &angle){
+bool GameMap::IsCollision(const double &posx,const double &posy,const double &angle,int &checkpointCounter){
     rogiCalculate(posx,posy,angle);
 
     for(auto x:obstac){
@@ -102,6 +103,10 @@ bool GameMap::IsCollision(const double &posx,const double &posy,const double &an
         }
     }
     //brzegi
+    if(Obstacles(checkpointObj[checkpointCounter].first,checkpointObj[checkpointCounter].second,promienCheckpoint,promienCheckpoint).isCollision(rogiX,rogiY,posx,posy,angle))
+    {
+        checkpointCounter++;
+    }
     if(isCollisionBox())
         return true;
     return false;
@@ -161,4 +166,8 @@ void GameMap::initCheckpoints()
         checkpointObj.push_back(std::pair<double,double>(x1,y1));
     }
     std::random_shuffle ( checkpointObj.begin(), checkpointObj.end() );
+}
+void GameMap::drawingCheckpoint(int n)
+{
+    Obstacles(checkpointObj[n].first,checkpointObj[n].second,promienCheckpoint,promienCheckpoint).drawColor(al_map_rgb(255,0,0));
 }

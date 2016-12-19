@@ -2,6 +2,7 @@
 
 PlayerKeyboard2::PlayerKeyboard2(ALLEGRO_DISPLAY* d,int x,int y) : PlayerKeyboard(d,x,y)
 {
+    checkpointCounter2=0;
     collisionFlag2=false;
     posX2=x;                                                                         //starting position
     posY2=y;
@@ -21,7 +22,14 @@ PlayerKeyboard2::PlayerKeyboard2(ALLEGRO_DISPLAY* d,int x,int y) : PlayerKeyboar
     screen1=al_create_bitmap(screenx,screeny*2);
     screen2=al_create_bitmap(screenx,screeny*2);
 }
+void PlayerKeyboard2::drawingHUD2()
+{
 
+    al_draw_filled_rectangle(posX2-screenx/2,posY2+4*screeny/5,posX2+screenx/2,posY2+5*screeny/4,al_map_rgb(0,0,255));
+    al_draw_line(posX2-screenx/2+20, posY2+4*screeny/5+50, posX2-screenx/2+260,  posY2+4*screeny/5+50,al_map_rgb(255,0,0), 2);
+    al_draw_filled_triangle(posX2-screenx/2+130+20*moveSpeed2,posY2+4*screeny/5+50,posX2-screenx/2+136+20*moveSpeed2,posY2+4*screeny/5+50,posX2-screenx/2+133+20*moveSpeed2,posY2+4*screeny/5+40,al_map_rgb(0,255,0));
+
+}
 int PlayerKeyboard2::movingKey()
 {
     bool draw;
@@ -137,7 +145,7 @@ int PlayerKeyboard2::movingKey()
 // ------------------------CHANGING POSITION OF PLAYER 1 ----------------------
                         NewPosY=(moveSpeed*sin((angle)*M_PI/180.0));
                         NewPosX=(moveSpeed*cos((angle)*M_PI/180.0));
-                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle))
+                        if (mapa.IsCollision(posX+NewPosX,posY+NewPosY,angle,checkpointCounter1))
                             {
                                angle=tempAngle;
                                 if(collisionFlag1==false)
@@ -152,13 +160,11 @@ int PlayerKeyboard2::movingKey()
                                 posY+=NewPosY;
                                 posX+=NewPosX;
                             }
-                           std::cout<<moveSpeed<<std::endl;
-                           std::cout<<"posx,y= "<<posX<<" "<<posY<<std::endl;
-                           std::cout<<"new "<<posX+NewPosX<<" "<<posY+NewPosY<<std::endl;
+
 // ------------------------CHANGING POSITION OF PLAYER 2 ----------------------
                         NewPosY2=(moveSpeed2*sin((angle2)*M_PI/180.0));
                         NewPosX2=(moveSpeed2*cos((angle2)*M_PI/180.0));
-                        if (mapa.IsCollision(posX2+NewPosX2,posY2+NewPosY2,angle2))
+                        if (mapa.IsCollision(posX2+NewPosX2,posY2+NewPosY2,angle2,checkpointCounter2))
                             {
                                 angle2=tempAngle2;
                                 if(collisionFlag2==false)
@@ -176,13 +182,14 @@ int PlayerKeyboard2::movingKey()
 
 //--------------------CAMERA----------------------------------------------------------------------------------
                     al_identity_transform(&camera);
-                    al_translate_transform(&camera,-posX+screenx/2,-posY+screeny);
+                    al_translate_transform(&camera,-posX+screenx/2,-posY+4*screeny/5);
                     al_identity_transform(&camera2);
-                    al_translate_transform(&camera2,-posX2+screenx/2,-posY2+screeny);
+                    al_translate_transform(&camera2,-posX2+screenx/2,-posY2+4*screeny/5);
                     //al_use_transform(&camera);
                 }
             draw=true;
        }
+
        if(draw)
        {
             draw=false;
@@ -198,16 +205,20 @@ void PlayerKeyboard2::drawing2()
     al_set_target_bitmap(screen1);
     al_clear_to_color(al_map_rgb(0,0,240));
     mapa.draw();
+    mapa.drawingCheckpoint(checkpointCounter1);
     al_draw_rotated_bitmap(model,al_get_bitmap_width(model)/2,al_get_bitmap_height(model)/2,posX,posY,angle*M_PI/(180.0)+M_PI/2.0,NULL);
     al_draw_rotated_bitmap(model2,al_get_bitmap_width(model2)/2,al_get_bitmap_height(model2)/2,posX2,posY2,angle2*M_PI/(180.0)+M_PI/2.0,NULL);
     al_use_transform(&camera);
+    drawingHUD1();
 //------------Player 2-------------------------------------------
     al_set_target_bitmap(screen2);
     al_clear_to_color(al_map_rgb(0,0,240));
     mapa.draw();
+    mapa.drawingCheckpoint(checkpointCounter2);
     al_draw_rotated_bitmap(model,al_get_bitmap_width(model)/2,al_get_bitmap_height(model)/2,posX,posY,angle*M_PI/(180.0)+M_PI/2.0,NULL);
     al_draw_rotated_bitmap(model2,al_get_bitmap_width(model2)/2,al_get_bitmap_height(model2)/2,posX2,posY2,angle2*M_PI/(180.0)+M_PI/2.0,NULL);
     al_use_transform(&camera2);
+    drawingHUD2();
 //--------- Together------------------------------------------
     al_set_target_bitmap(al_get_backbuffer(display));
     al_draw_bitmap(screen1,0,0,NULL);

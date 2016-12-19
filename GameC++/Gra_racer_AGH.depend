@@ -2,7 +2,7 @@
 1481457192 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemenu.cpp
 	"headers.h"
 
-1482171926 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
+1482185145 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_primitives.h>
@@ -27,22 +27,22 @@
 1481979151 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\main.cpp
 	"headers.h"
 
-1482168384 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\obstacles.cpp
+1482173565 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\obstacles.cpp
 	"headers.h"
 
 1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\options.cpp
 	"headers.h"
 
-1482099050 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\player.cpp
+1482185145 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\player.cpp
 	"headers.h"
 
-1482160292 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
+1482185145 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
 	"headers.h"
 
-1482165438 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard2.cpp
+1482181904 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard2.cpp
 	"headers.h"
 
-1481561370 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playermobile.cpp
+1482175309 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playermobile.cpp
 	"headers.h"
 
 1481053105 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\socketclient.cpp
@@ -57,6 +57,6 @@
 1481457192 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\window.cpp
 	"headers.h"
 
-1482172006 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
+1482175662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
 	"headers.h"
 

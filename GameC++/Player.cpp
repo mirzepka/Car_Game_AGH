@@ -26,6 +26,7 @@ Player::Player(ALLEGRO_DISPLAY* d,int x,int y)
     tempAngle=0;
     tempMoveSpeed=0;
     turning=5.0;
+    checkpointCounter1=0;
 }
 void Player::draw()
 {
@@ -39,3 +40,19 @@ Player::~Player()
     al_destroy_bitmap(model);
     al_destroy_display(display);
 }
+void Player::drawingHUD()
+{
+
+    al_draw_filled_rectangle(posX-screenx/2,posY+4*screeny/5,posX+screenx/2,posY+5*screeny/4,al_map_rgb(0,0,255));
+    al_draw_line(posX-screenx+20, posY+4*screeny/5+50, posX-screenx+260,  posY+4*screeny/5+50,al_map_rgb(255,0,0), 2);
+    al_draw_filled_triangle(posX-screenx+130+20*moveSpeed,posY+4*screeny/5+50,posX-screenx+136+20*moveSpeed,posY+4*screeny/5+50,posX-screenx+133+20*moveSpeed,posY+4*screeny/5+40,al_map_rgb(0,255,0));
+}
+void Player::drawingHUD1()
+{
+
+    al_draw_filled_rectangle(posX-screenx/2,posY+4*screeny/5,posX+screenx/2,posY+5*screeny/4,al_map_rgb(0,0,255));
+    al_draw_line(posX-screenx/2+20, posY+4*screeny/5+50, posX-screenx/2+260,  posY+4*screeny/5+50,al_map_rgb(255,0,0), 2);
+    al_draw_filled_triangle(posX-screenx/2+130+20*moveSpeed,posY+4*screeny/5+50,posX-screenx/2+136+20*moveSpeed,posY+4*screeny/5+50,posX-screenx/2+133+20*moveSpeed,posY+4*screeny/5+40,al_map_rgb(0,255,0));
+
+}
+

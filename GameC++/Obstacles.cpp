@@ -31,6 +31,9 @@ bool Obstacles::isCollision(const double *rogiX,const double *rogiY,const double
 void Obstacles::draw(){
     al_draw_filled_ellipse(xCenter, yCenter, scaleX, scaleY,color);
 }
+void Obstacles::drawColor(ALLEGRO_COLOR color){
+    al_draw_filled_ellipse(xCenter, yCenter, scaleX, scaleY,color);
+}
 std::vector<double> Obstacles::returnValues()
 {
     return values;
