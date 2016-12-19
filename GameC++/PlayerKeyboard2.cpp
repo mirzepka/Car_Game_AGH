@@ -1,6 +1,6 @@
 #include "headers.h"
 
-PlayerKeyboard2::PlayerKeyboard2(ALLEGRO_DISPLAY* d,int x,int y) : PlayerKeyboard(d,x,y)
+PlayerKeyboard2::PlayerKeyboard2(ALLEGRO_DISPLAY* d,int x,int y) : Player(d,x,y)
 {
     checkpointCounter2=0;
     collisionFlag2=false;
@@ -236,4 +236,10 @@ bool PlayerKeyboard2::checkWinning2()
         return true;
     else
         return false;
+}
+PlayerKeyboard2::~PlayerKeyboard2()
+{
+    al_destroy_bitmap(model2);
+    al_destroy_bitmap(screen1);
+    al_destroy_bitmap(screen2);
 }

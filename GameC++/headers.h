@@ -148,7 +148,7 @@ class Player
 {
 protected:
     GameMap mapa;
-    ALLEGRO_TIMER* frameTimer,*speedTimer;
+    ALLEGRO_TIMER* frameTimer;
     ALLEGRO_DISPLAY* display;
     ALLEGRO_EVENT_QUEUE * eventQueue;
     ALLEGRO_BITMAP* model;
@@ -209,7 +209,7 @@ class PlayerMobile : public Player
     int movingKey();
 };
 
-class PlayerKeyboard2 : public PlayerKeyboard
+class PlayerKeyboard2 : public Player
 {
 private:
     int checkpointCounter2;
@@ -229,6 +229,7 @@ private:
     ALLEGRO_TRANSFORM camera2;
     public:
     PlayerKeyboard2(ALLEGRO_DISPLAY*,int,int);
+    ~PlayerKeyboard2();
     int movingKey();
     bool collisionFlag2;
     void drawingHUD2();

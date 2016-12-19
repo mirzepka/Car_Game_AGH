@@ -37,7 +37,6 @@
 			<Add option="-std=c++11" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Checkpoints.cpp" />
 		<Unit filename="GameMap.cpp" />
 		<Unit filename="GameMenu.cpp" />
 		<Unit filename="Init.cpp" />
