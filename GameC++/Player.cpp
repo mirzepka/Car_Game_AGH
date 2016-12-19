@@ -56,3 +56,10 @@ void Player::drawingHUD1()
 
 }
 
+bool Player::checkWinning1()
+{
+    if(checkpointCounter1==mapa.returnCheckpoints())
+        return true;
+    else
+        return false;
+}

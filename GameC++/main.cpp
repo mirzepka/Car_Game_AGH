@@ -3,13 +3,13 @@
 int main()
 {
     srand (time(NULL));
-    int OverFlag=1,option=0;
+    int OverFlag=1,flag=1,option=0;
     Init initializer;
     Window mainWindow;
     GameMenu mainMenu(mainWindow.getDisplay());
 while(OverFlag)
 {
-
+    flag=1;
         option = mainMenu.WhichOption();
     switch(option)
     {
@@ -23,7 +23,7 @@ while(OverFlag)
                 if(mainMenu.WhichOption3()==1)
                 {
                     PlayerKeyboard g1(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
-                    while(1)
+                    while(flag==1)
                     {
 
                         g1.movingKey();
@@ -33,7 +33,7 @@ while(OverFlag)
                 else
                 {
                     PlayerMobile g1(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
-                    while(1)
+                    while(flag==1)
                     {
 
                        g1.movingKey();
@@ -47,10 +47,11 @@ while(OverFlag)
                     if(mainMenu.WhichOption3()==1)
                     {
                         PlayerKeyboard2 g(mainWindow.getDisplay(),mainWindow.getWidth(),mainWindow.getHeight());
-                        while(1)
+                        while(flag==1)
                         {
-                            g.movingKey();
+                            flag=g.movingKey();
                         }
+                        mainMenu.winner(flag);
                     }
                     else
                     {

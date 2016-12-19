@@ -374,3 +374,10 @@ int GameMenu::WhichOption3()
         }
     }
 }
+void GameMenu::winner(int n)
+{
+    if(n==2)
+        std::cout<<"winner g1"<<std::endl;
+    else
+        std::cout<<"winner g2"<<std::endl;
+}

@@ -189,6 +189,10 @@ int PlayerKeyboard2::movingKey()
                 }
             draw=true;
        }
+        if(checkWinning1())
+            return 2;
+        else if(checkWinning2())
+            return 3;
 
        if(draw)
        {
@@ -225,4 +229,11 @@ void PlayerKeyboard2::drawing2()
     al_draw_bitmap(screen2,screenx,0,NULL);
     al_flip_display();
     al_clear_to_color(al_map_rgb(0,0,240));
+}
+bool PlayerKeyboard2::checkWinning2()
+{
+    if(checkpointCounter2==mapa.returnCheckpoints())
+        return true;
+    else
+        return false;
 }

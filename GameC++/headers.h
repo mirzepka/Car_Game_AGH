@@ -106,6 +106,7 @@ public:
     ~GameMap();
     void draw();
     void drawingCheckpoint(int n);
+    int returnCheckpoints();
 
 };
 
@@ -141,6 +142,7 @@ class GameMenu
         int WhichOption();
         int WhichOption2();
         int WhichOption3();
+        void winner(int);
 };
 class Player
 {
@@ -171,6 +173,7 @@ public:
     void draw();
     void drawingHUD1();
     void drawingHUD();
+    bool checkWinning1();
 };
 
 class PlayerKeyboard : public Player
@@ -229,4 +232,5 @@ private:
     int movingKey();
     bool collisionFlag2;
     void drawingHUD2();
+    bool checkWinning2();
 };

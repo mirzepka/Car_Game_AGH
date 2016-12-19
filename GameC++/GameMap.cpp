@@ -8,7 +8,7 @@ GameMap::GameMap()
     MapSizeX=3200;
     MapSizeY=3200;
     freespace=100;
-    numberOfCheckpoints=10;
+    numberOfCheckpoints=2;
     SX=5;
     SY=SX;
     mapFront = al_load_bitmap("mapNO1.png");
@@ -170,4 +170,8 @@ void GameMap::initCheckpoints()
 void GameMap::drawingCheckpoint(int n)
 {
     Obstacles(checkpointObj[n].first,checkpointObj[n].second,promienCheckpoint,promienCheckpoint).drawColor(al_map_rgb(255,0,0));
+}
+int GameMap::returnCheckpoints()
+{
+    return  numberOfCheckpoints;
 }
