@@ -77,16 +77,7 @@ public:
     void draw();
     std::vector<double> returnValues();
 };
-class Checkpoints
-{
-    private:
-    double r;
-    std::vector <Obstacles> checkpointObj;
-    public:
-        void draw();
-        Checkpoints();
-        Checkpoints(int,std::vector<std::pair<double,double>>,std::vector<std::pair<double,double>>,std::vector<Obstacles>,double,double);
-};
+
 class GameMap
 {
 private:
@@ -96,15 +87,17 @@ private:
     //ALLEGRO_BITMAP *mapBack;
     int numberOfSquares,numberOfObstacles;
     int SX,SY;      // number of squares x and y
+    int promienCheckpoint;
     int freespace; //free space between squares
     std::vector<std::pair<double,double>> squareX;    //x: parzysta+nieparzysta, Y= parzysta + nieparzysta
     std::vector<std::pair<double,double>> squareY;
     std::vector<Obstacles> obstac;   // przeszkody eliptyczne
-    Checkpoints checkP;
+    std::vector <std::pair<double,double>> checkpointObj;
     void init();
     double rogiX[8],rogiY[8];
     bool isCollisionBox();
     void rogiCalculate(const double &,const double &,const double &);
+    void initCheckpoints();
 public:
     bool IsCollision(const double &,const double &,const double &);
     GameMap();

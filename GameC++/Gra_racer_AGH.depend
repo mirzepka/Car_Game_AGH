@@ -1,1 +1,62 @@
 # depslib dependency file v1.0
+1481457192 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemenu.cpp
+	"headers.h"
+
+1482171926 c:\users\zajac\documents\mojgit\car_game_agh\gamec++\headers.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<iostream>
+	<algorithm>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<cmath>
+	<string>
+	<vector>
+	<sstream>
+	<fstream>
+	<cstdio>
+	<time.h>
+
+1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\init.cpp
+	"headers.h"
+
+1481979151 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\main.cpp
+	"headers.h"
+
+1482168384 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\obstacles.cpp
+	"headers.h"
+
+1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\options.cpp
+	"headers.h"
+
+1482099050 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\player.cpp
+	"headers.h"
+
+1482160292 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard.cpp
+	"headers.h"
+
+1482165438 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playerkeyboard2.cpp
+	"headers.h"
+
+1481561370 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\playermobile.cpp
+	"headers.h"
+
+1481053105 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\socketclient.cpp
+	"headers.h"
+	<iostream>
+	<Winsock2.h>
+	<string>
+
+1480800662 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\timers.cpp
+	"headers.h"
+
+1481457192 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\window.cpp
+	"headers.h"
+
+1482172006 source:c:\users\zajac\documents\mojgit\car_game_agh\gamec++\gamemap.cpp
+	"headers.h"
+

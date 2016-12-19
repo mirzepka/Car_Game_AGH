@@ -13,7 +13,8 @@ GameMap::GameMap()
     SY=SX;
     mapFront = al_load_bitmap("mapNO1.png");
     init();
-    checkP=Checkpoints(numberOfCheckpoints,squareX,squareY,obstac,MapSizeX,MapSizeY);
+    promienCheckpoint=20;
+
 }
 GameMap::~GameMap()
 {
@@ -33,7 +34,7 @@ void GameMap::draw()
     for(auto x:obstac){
         x.draw();
     }
-    checkP.draw();
+
 
 }
 void GameMap::init()
@@ -127,4 +128,37 @@ void GameMap::rogiCalculate(const double &x,const double &y,const double &angle)
     rogiY[6]=y+((rogiY[1]-rogiY[3])/2.0);
     rogiX[7]=x+((rogiX[3]-rogiX[0])/2.0);
     rogiY[7]=y+((rogiY[3]-rogiY[0])/2.0);
+}
+void GameMap::initCheckpoints()
+{
+
+    bool check1,check2;
+    int licznik=0;
+    double x1,y1;
+    for(int i=0;i<numberOfCheckpoints;i++)
+    {
+        while(1)
+        {
+            check1=false,check2=false;
+            licznik=0;
+            x1=rand()%((int)(MapSizeX/(numberOfCheckpoints*1.0)))+i*MapSizeX/(numberOfCheckpoints*1.0);
+            y1=rand()%((int)(MapSizeY/(numberOfCheckpoints*1.0)))+i*MapSizeY/(numberOfCheckpoints*1.0);
+            for(auto x:squareX)
+                {
+                    if(x1>x.first && x1<x.second && y1>squareY[i].first && y1<squareY[i].second)
+                        check1=true;
+                    licznik++;
+                }
+            for(auto x:obstac)
+               {
+
+                   if((pow(x1-x.returnValues()[0],2)+pow((y1-x.returnValues()[1])*x.returnValues()[3]/x.returnValues()[2],2))<=pow(x.returnValues()[3],2))
+                       check2 = true;
+               }
+            if(check1==false && check2== false)
+                break;
+        }
+        checkpointObj.push_back(std::pair<double,double>(x1,y1));
+    }
+    std::random_shuffle ( checkpointObj.begin(), checkpointObj.end() );
 }
